@@ -1,0 +1,17 @@
+.navigation{
+    transition: .5s;
+  }
+
+
+  @media screen and (max-width: 1024px) {
+
+    .navigation{ /* de positsie van het hamburger menu voordat hij is geopend en de transition voor de animatie van de ene staat naar de ander */
+      position: fixed;
+      right: -100em;
+      height: 100%;
+      transition: .5s;
+    }
+    .navigation.active{ /* zorgt ervoor dat het menu aan de rechter kan van het scherm eruit komt en blijft*/
+        right: 0;
+      }
+}
