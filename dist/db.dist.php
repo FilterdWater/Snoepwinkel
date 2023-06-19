@@ -5,7 +5,7 @@ require_once 'db.con.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     print_r($_POST);
   $naam = $_POST['naam'];
-  $foto = $_POST['foto'];
+  $foto = file_get_contents($_FILES['foto']['tmp_name']);
   $prijs = $_POST['prijs'];
   $beschrijving = $_POST['beschrijving'];
   $filter_categorie = $_POST['filter_categorie'];

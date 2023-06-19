@@ -93,7 +93,7 @@
             </div>
         </header>
 
-    <form action="db.dist.php" method="POST">
+    <form action="db.dist.php" method="POST" enctype="multipart/form-data">
     <div class="flex min-h-full flex-col justify-center px-6 py-24 lg:px-8">
   
       <div class="border-b border-gray-900/10 pb-12">
