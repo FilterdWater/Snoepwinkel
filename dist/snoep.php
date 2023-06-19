@@ -93,16 +93,6 @@
             </div>
         </header>
 
-        <section style="background-image: url(images/a-lot-of-colorful-candy.jpg);">
-            <div class="px-4 py-40">
-                <div class="mx-auto max-w-xl text-left bg-white/90 px-8 py-16 rounded">
-                    <h1 class="text-3xl sm:text-5xl font-extrabold"> Onze snoepjes <div class="sm:block font-extrabold text-rose-500">De lekkerste snoepjes ooit.</div>
-                    </h1>
-                    <p class="mt-4 sm:text-xl/relaxed"> Echt waar </p>
-                </div>
-            </div>
-        </section>
-
         <section class="text-gray-600 body-font mt-8">
     <div class="container px-5 py-24 mx-auto">
         <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
@@ -119,13 +109,20 @@
                 // Fetch the results
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     $name = $row['naam'];
-                    $image = $row['foto'];
+                    $imageData = $row['foto'];
                     $price = $row['prijs'];
                     $description = $row['beschrijving'];
+
+                    // Determine the image type
+                    $finfo = new finfo(FILEINFO_MIME_TYPE);
+                    $imageType = $finfo->buffer($imageData);
+
+                    // Generate the data URI
+                    $imageSrc = 'data:' . $imageType . ';base64,' . base64_encode($imageData);
             ?>
             <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
                 <div class="rounded-lg h-64 overflow-hidden">
-                    <img alt="product" class="object-cover object-center h-full w-full" src="<?php echo $image; ?>">
+                    <img alt="product" class="object-cover object-center h-full w-full" src="<?php echo $imageSrc; ?>">
                 </div>
                 <h2 class="text-xl font-medium title-font text-gray-900 mt-5"><?php echo $name; ?></h2>
                 <p class="text-base leading-relaxed mt-2"><?php echo $description; ?></p>
@@ -141,6 +138,10 @@
         </div>
     </div>
 </section>
+
+
+
+
 
 
 
