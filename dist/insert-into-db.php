@@ -12,9 +12,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <script defer src="mobile-menu.js"></script>
 </head>
-
 <body>
-    <div class="bg-white">
+
+<div class="bg-white">
         <header class="absolute inset-x-0 top-0 z-50">
             <nav class="fixed top-0 w-full flex items-center justify-between p-3 lg:px-8 bg-white outline outline-2 outline-cyan-700" aria-label="Global">
                 <div class="flex lg:flex-1">
@@ -30,7 +30,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
                     </button>
-                </div>      
+                </div>
                 <div class="hidden lg:flex lg:gap-x-12">
                     <a href="index.html" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold border-b-2 border-gray-300 hover:border-current cursor-pointer select-none text-gray-900 hover:bg-gray-50 transition-all shadow-inner">Home</a>
                     <a href="snoep.php" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold border-b-2 border-gray-300 hover:border-current cursor-pointer select-none text-gray-900 hover:bg-gray-50 transition-all shadow-inner">Snoep</a>
@@ -93,59 +93,73 @@
             </div>
         </header>
 
-        <section style="background-image: url(images/a-lot-of-colorful-candy.jpg);">
-            <div class="px-4 py-40">
-                <div class="mx-auto max-w-xl text-left bg-white/90 px-8 py-16 rounded">
-                    <h1 class="text-3xl sm:text-5xl font-extrabold"> Onze snoepjes <div class="sm:block font-extrabold text-rose-500">De lekkerste snoepjes ooit.</div>
-                    </h1>
-                    <p class="mt-4 sm:text-xl/relaxed"> Echt waar </p>
-                </div>
+    <form action="db.dist.php" method="POST">
+    <div class="flex min-h-full flex-col justify-center px-6 py-24 lg:px-8">
+  
+      <div class="border-b border-gray-900/10 pb-12">
+        <h2 class="text-base font-semibold leading-7 text-gray-900 mt-4">Voeg een product toe</h2>
+        <p class="mt-1 text-sm leading-6 text-gray-600">Alle info die je hierin voert wordt gebruikt om een nieuw product weer te geven</p>
+  
+        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div class="sm:col-span-2">
+            <label for="naam" class="block text-sm font-medium leading-6 text-gray-900">naam</label>
+            <div class="mt-2">
+              <input type="text" name="naam" id="naam" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             </div>
-        </section>
-
-        <section class="text-gray-600 body-font mt-8">
-    <div class="container px-5 py-24 mx-auto">
-        <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-            <?php
-            // Include the PDO connection file
-            require_once 'db.con.php';
-
-            // Query to retrieve data from the database
-            $query = "SELECT naam, foto, prijs, beschrijving FROM snoep";
-            $stmt = $conn->query($query);
-
-            // Check if the query was successful
-            if ($stmt) {
-                // Fetch the results
-                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    $name = $row['naam'];
-                    $image = $row['foto'];
-                    $price = $row['prijs'];
-                    $description = $row['beschrijving'];
-            ?>
-            <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
-                <div class="rounded-lg h-64 overflow-hidden">
-                    <img alt="product" class="object-cover object-center h-full w-full" src="<?php echo $image; ?>">
-                </div>
-                <h2 class="text-xl font-medium title-font text-gray-900 mt-5"><?php echo $name; ?></h2>
-                <p class="text-base leading-relaxed mt-2"><?php echo $description; ?></p>
-                <button type="button" class="mt-6 text-white bg-gradient-to-r from-rose-400 via-rose-500 to-rose-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-rose-300 dark:focus:ring-rose-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">+ Add to cart</button>
+          </div>
+  
+          <div class="col-span-full">
+          <label for="foto" class="block text-sm font-medium leading-6 text-gray-900">Foto</label>
+          <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+            <div class="text-center">
+              <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+              </svg>
+              <div class="mt-4 flex text-sm leading-6 text-gray-600">
+                <label for="foto" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                  <span>Upload a file</span>
+                  <input id="foto" name="foto" type="file" class="sr-only">
+                </label>
+                <p class="pl-1">or drag and drop</p>
+              </div>
+              <p class="text-xs leading-5 text-gray-600">PNG or JPG up to 10MB</p>
             </div>
-            <?php
-                }
-            } else {
-                // Handle the case when the query fails
-                echo "Error executing the query: " . $stmt->errorInfo()[2];
-            }
-            ?>
+          </div>
         </div>
+  
+          <div class="sm:col-span-2">
+            <label for="prijs" class="block text-sm font-medium leading-6 text-gray-900">Prijs</label>
+            <div class="mt-2">
+              <input type="text" name="prijs" id="prijs" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+
+          <div class="sm:col-span-4">
+            <label for="beschrijving" class="block text-sm font-medium leading-6 text-gray-900">Beschrijving</label>
+            <div class="mt-2">
+              <input type="text" name="beschrijving" id="beschrijving" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+
+          <div class="sm:col-span-4">
+            <label for="filter_categorie" class="block text-sm font-medium leading-6 text-gray-900">Filter-categorie</label>
+            <div class="mt-2">
+              <input type="text" name="filter_categorie" id="filter_categorie" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+
+        </div>
+      </div>
+  
+
+      <div class="flex items-center gap-x-3 mt-6">
+        <button type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
+        <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+      </div>
     </div>
-</section>
+</form>
 
-
-
-
-        <footer class="bg-rose-400">
+<footer class="bg-rose-400">
             <div class="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
                 <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
                     <div class="bg-rose-500 shadow-inner rounded p-4">
@@ -207,14 +221,12 @@
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4  h-4">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 11.25l-3-3m0 0l-3 3m3-3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
-                        </li>
                     </a>
+                    </li>
                 </ul>
             </div>
         </footer>
 
 
-
 </body>
-
-</html> 
+</html>
