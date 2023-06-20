@@ -97,14 +97,14 @@
     <div class="container px-5 py-24 mx-auto">
         <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
             <?php
-            // Include the PDO connection file
+            // PDO connectie file
             require_once 'db.con.php';
 
-            // Query to retrieve data from the database
+            // Query om data van de database te halen
             $query = "SELECT naam, foto, prijs, beschrijving FROM snoep";
             $stmt = $conn->query($query);
 
-            // Check if the query was successful
+            // Check of de query succssful was
             if ($stmt) {
                 // Fetch the results
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -113,17 +113,17 @@
                     $price = $row['prijs'];
                     $description = $row['beschrijving'];
 
-                    // Determine the image type
+                    // beslis het image type
                     $finfo = new finfo(FILEINFO_MIME_TYPE);
                     $imageType = $finfo->buffer($imageData);
 
-                    // Generate the data URI
+                    // Maak de data URI
                     $imageSrc = 'data:' . $imageType . ';base64,' . base64_encode($imageData);
 
-                    // Output the HTML for each item
+                    // Naa html
                     echo '<div class="p-4 md:w-1/3 sm:mb-0 mb-6">';
-                    echo '<div class="rounded-lg h-64 overflow-hidden">';
-                    echo '<img alt="product" class="object-cover object-center h-full w-full" style="width: auto; height: 100%;" src="' . $imageSrc . '">';
+                    echo '<div class="rounded-lg h-64 w-72 overflow-hidden">';
+                    echo '<img alt="product" class="object-cover object-center h-full w-auto"  src="' . $imageSrc . '">';
                     echo '</div>';                    
                     echo '<h2 class="text-xl font-medium title-font text-gray-900 mt-5">' . $name . '</h2>';
                     echo '<p class="text-base leading-relaxed mt-2">' . $description . '</p>';
@@ -131,7 +131,6 @@
                     echo '</div>';
                 }
             } else {
-                // Handle the case when the query fails
                 echo "Error executing the query: " . $stmt->errorInfo()[2];
             }
             ?>
