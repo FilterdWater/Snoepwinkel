@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $nutritional_value = $_POST['nutritional_value'];
   $filter_category = $_POST['filter_category'];
 
-  // File Upload
+  // Foto en foto filepath Uploaden naar db
   $targetDir = "images/";
   $fileName = $_FILES['picture']['name'];
   $targetFilePath = $targetDir . $fileName;
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   try {
     $stmt->execute();
     echo "Data inserted successfully";
-    header('Location: index.html');
+    header('Location: index.php');
     exit();
   } catch(PDOException $e) {
     echo "Error inserting data: " . $e->getMessage();
