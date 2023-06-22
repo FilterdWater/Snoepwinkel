@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   try {
     $stmt->execute();
     echo "Data inserted successfully";
-    header('Location: index.php');
+    header('Location: success-product-toevoegen.php');
     exit();
   } catch(PDOException $e) {
     echo "Error inserting data: " . $e->getMessage();
