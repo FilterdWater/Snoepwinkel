@@ -11,13 +11,13 @@
     
     /* Handle */
     ::-webkit-scrollbar-thumb {
-      background: linear-gradient(135deg, #ff7c7c, #6280f6);
+      background: linear-gradient(135deg, #0d7490, #ff9c32);
       border-radius: 5px;
     }
     
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(135deg, #ff7c7c69, #6280f681);
+      background: linear-gradient(135deg, #0d7490c9, #ff9c32c7);
     }
     
     /* Button */

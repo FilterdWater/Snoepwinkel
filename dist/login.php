@@ -17,7 +17,7 @@
 <div class="bg-white">
        
     <?php
-        require_once 'header.php'    
+        require_once 'header.php';    
     ?>
 
 <div class="mt-28 mx-12 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -65,7 +65,7 @@
 </div>
 
     <?php
-        require_once 'footer.php'
+    require_once 'footer.php';
     ?>
 
 

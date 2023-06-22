@@ -1,3 +1,12 @@
+<?php
+
+require_once ('db.inc.php');
+$con = getDBConnection();
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,52 +27,34 @@
        
         <?php
         
-        require_once 'header.php'
+        require_once 'header.php';
         
         ?>
 
-        <section class="text-gray-600 body-font mt-8">
+<section class="text-gray-600 body-font mt-8">
     <div class="container px-5 py-24 mx-auto">
-        <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-            <?php
-            // PDO connectie file
-            require_once 'db.con.php';
+    <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
 
-            // Query om data van de database te halen
-            $query = "SELECT naam, foto, prijs, beschrijving FROM snoep";
-            $stmt = $conn->query($query);
+<?php
 
-            // Check of de query succssful was
-            if ($stmt) {
-                // Fetch the results
-                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    $name = $row['naam'];
-                    $imageData = $row['foto'];
-                    $price = $row['prijs'];
-                    $description = $row['beschrijving'];
+$products = getProducts($con);
 
-                    // beslis het image type
-                    $finfo = new finfo(FILEINFO_MIME_TYPE);
-                    $imageType = $finfo->buffer($imageData);
+foreach($products as $product){
 
-                    // Maak de data URI
-                    $imageSrc = 'data:' . $imageType . ';base64,' . base64_encode($imageData);
+    echo '<div class="p-4 md:w-1/3 sm:mb-0 mb-6">';
+    echo '<div class="rounded-lg h-64 w-72 overflow-hidden">';
+    echo '<img alt="product" class="object-cover object-center h-aut w-52"  src="'.$product['picture'].'">';
+    echo '</div>';                    
+    echo '<h2 class="text-xl font-medium title-font text-gray-900 mt-5">' . $product['name'] . '</h2>';
+    echo '<p class="text-base leading-relaxed mt-2">' . $product['description'] . '</p>';
+    echo '<button type="button" class="mt-6 text-white bg-gradient-to-r from-rose-400 via-rose-500 to-rose-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-rose-300 dark:focus:ring-rose-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">+ Add to cart</button>';
+    echo '</div>';
+}
 
-                    // Naa html
-                    echo '<div class="p-4 md:w-1/3 sm:mb-0 mb-6">';
-                    echo '<div class="rounded-lg h-64 w-72 overflow-hidden">';
-                    echo '<img alt="product" class="object-cover object-center h-full w-auto"  src="' . $imageSrc . '">';
-                    echo '</div>';                    
-                    echo '<h2 class="text-xl font-medium title-font text-gray-900 mt-5">' . $name . '</h2>';
-                    echo '<p class="text-base leading-relaxed mt-2">' . $description . '</p>';
-                    echo '<button type="button" class="mt-6 text-white bg-gradient-to-r from-rose-400 via-rose-500 to-rose-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-rose-300 dark:focus:ring-rose-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">+ Add to cart</button>';
-                    echo '</div>';
-                }
-            } else {
-                echo "Error executing the query: " . $stmt->errorInfo()[2];
-            }
-            ?>
-        </div>
+
+
+?>
+    </div>
     </div>
 </section>
 
@@ -77,7 +68,7 @@
 
         <?php
         
-            require_once 'footer.php'
+            require_once 'footer.php';
 
         ?>
 

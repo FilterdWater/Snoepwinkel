@@ -1,33 +1,41 @@
 <?php
-
-require_once 'db.con.php';
+require_once('db.inc.php');
+$con = getDBConnection();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    print_r($_POST);
-  $naam = $_POST['naam'];
-  $foto = file_get_contents($_FILES['foto']['tmp_name']);
-  $prijs = $_POST['prijs'];
-  $beschrijving = $_POST['beschrijving'];
-  $filter_categorie = $_POST['filter_categorie'];
+  $name = $_POST['name'];
+  $price = $_POST['price'];
+  $description = $_POST['description'];
+  $detailed_description = $_POST['detailed_description'];
+  $nutritional_value = $_POST['nutritional_value'];
+  $filter_category = $_POST['filter_category'];
 
-  $sql = "INSERT INTO snoep (naam, foto, prijs, beschrijving, filter_categorie) VALUES (:naam, :foto, :prijs, :beschrijving, :filter_categorie)";
-  $stmt = $conn->prepare($sql);
+  // File Upload
+  $targetDir = "images/";
+  $fileName = $_FILES['picture']['name'];
+  $targetFilePath = $targetDir . $fileName;
+  move_uploaded_file($_FILES['picture']['tmp_name'], $targetFilePath);
 
-  $stmt->bindParam(':naam', $naam);
-  $stmt->bindParam(':foto', $foto);
-  $stmt->bindParam(':prijs', $prijs);
-  $stmt->bindParam(':beschrijving', $beschrijving);
-  $stmt->bindParam(':filter_categorie', $filter_categorie);
+  $sql = "INSERT INTO snoepjes (name, picture, price, description, detailed_description, nutritional_value, filter_category) VALUES (:name, :picture, :price, :description, :detailed_description, :nutritional_value, :filter_category)";
+  $stmt = $con->prepare($sql);
+
+  $stmt->bindParam(':name', $name);
+  $stmt->bindParam(':picture', $targetFilePath);
+  $stmt->bindParam(':price', $price);
+  $stmt->bindParam(':description', $description);
+  $stmt->bindParam(':detailed_description', $detailed_description);
+  $stmt->bindParam(':nutritional_value', $nutritional_value);
+  $stmt->bindParam(':filter_category', $filter_category);
 
   try {
     $stmt->execute();
-    echo "Data zit erin";
-    header('index.html');
+    echo "Data inserted successfully";
+    header('Location: index.html');
+    exit();
   } catch(PDOException $e) {
-    echo "Error data zit er niet in: " . $e->getMessage();
+    echo "Error inserting data: " . $e->getMessage();
   }
 }
 
-$conn = null;
-
+$con = null;
 ?>
