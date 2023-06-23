@@ -14,7 +14,7 @@
                     </svg>
                 </button>
             </div>
-            <div class="hidden lg:flex lg:gap-x-12">
+            <div class="hidden lg:flex pl-4 lg:gap-x-14">
                 <a href="index.php" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold border-b-2 border-gray-300 hover:border-current cursor-pointer select-none text-gray-900 hover:bg-gray-50 transition-all shadow-inner">Home</a>
                 <a href="snoep.php" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold border-b-2 border-gray-300 hover:border-current cursor-pointer select-none text-gray-900 hover:bg-gray-50 transition-all shadow-inner">Snoep</a>
                 <a href="contact.php" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold border-b-2 border-gray-300 hover:border-current cursor-pointer select-none text-gray-900 hover:bg-gray-50 transition-all shadow-inner">Contact</a>

@@ -34,17 +34,18 @@ if (isset($_GET['id'])) {
     <div class="bg-white">
         <?php require_once 'header.php'; ?>
 
-        <section class="text-gray-600 body-font mt-8">
+        <section class="text-black mt-8">
             <div class="container px-5 py-24 mx-auto">
-                <div class="flex flex-wrap">
-                    <div class="p-4 md:w-1/2">
-                        <div class="rounded-lg h-64 w-72 overflow-hidden">
-                            <img alt="product" class="object-cover object-center h-auto w-52" src="<?php echo $product['picture']; ?>">
+                <div class="flex flex-wrap justify-evenly">
+                    <div class="rounded-lg p-4 m-auto mb-6 outline outline-cyan-700 mx-6">
+                        <div class="h-64 w-auto overflow-hidden flex">
+                            <img alt="product" class="object-contain h-auto w-auto" src="<?php echo $product['picture']; ?>">
                         </div>
                     </div>
                     <div class="p-4 md:w-1/2">
-                        <h2 class="text-xl font-medium title-font text-gray-900 mt-5"><?php echo $product['name']; ?></h2>
-                        <p class="text-base leading-relaxed mt-2"><?php echo $product['description']; ?></p>
+                        <h2 class=" text-2xl font-medium  my-5"><?php echo $product['name']; ?></h2>
+                        <p class="text-base leading-relaxed  mt-2"><?php echo $product['description']; ?></p>
+                        <p class="text-sm leading-relaxed mt-2"><?php echo $product['detailed_description']; ?></p>
                         <button type="button" class="mt-6 text-white bg-gradient-to-r from-rose-700 via-rose-500 to-rose-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-rose-300 shadow-lg shadow-rose-500/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 transition-all">+ Add to cart</button>
                     </div>
                 </div>
