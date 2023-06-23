@@ -14,6 +14,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $targetDir = "images/";
   $fileName = $_FILES['picture']['name'];
   $targetFilePath = $targetDir . $fileName;
+
+  // Check if uploaded file has an allowed file extension
+  $allowedExtensions = array('jpg', 'jpeg', 'WEBP');
+  $fileExtension = strtolower(pathinfo($targetFilePath, PATHINFO_EXTENSION));
+  if (!in_array($fileExtension, $allowedExtensions)) {
+    echo "Error: Only JPG, JPEG, and WEBP files are allowed.";
+    exit();
+  }
+
+  // Check file size
+  $maxFileSize = 1 * 1024 * 1024; // 1 MB     1024x1024 = 1mb
+  $fileSize = $_FILES['picture']['size'];
+  if ($fileSize > $maxFileSize) {
+    echo "Error: The file size exceeds the maximum limit.";
+    exit();
+  }
+
   move_uploaded_file($_FILES['picture']['tmp_name'], $targetFilePath);
 
   $sql = "INSERT INTO snoepjes (name, picture, price, description, detailed_description, nutritional_value, filter_category) VALUES (:name, :picture, :price, :description, :detailed_description, :nutritional_value, :filter_category)";

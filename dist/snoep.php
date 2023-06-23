@@ -3,24 +3,15 @@ require_once('db.inc.php');
 $con = getDBConnection();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | CandyPop</title>
-    <link rel="stylesheet" href="output.css">
-    <link rel="stylesheet" href="custom.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-    <script defer src="mobile-menu.js"></script>
-</head>
+<?php
+$pagetitle = 'Snoep | CandyPop';
+require_once 'head.php';
+?>
 
 <body>
     <div class="bg-white">
-        <?php require_once 'header.php'; ?>
+
+        <?php require_once 'navbar.php'; ?>
 
         <section class="text-gray-600 body-font mt-8">
             <div class="container py-24 mx-auto">
@@ -29,7 +20,7 @@ $con = getDBConnection();
                     $products = getProducts($con);
 
                     foreach ($products as $product) {
-                        echo '<div class="rounded-lg p-4 m-auto mb-6 outline outline-cyan-700  mx-6">';
+                        echo '<div class="rounded-lg p-4 m-auto mb-6 outline outline-cyan-700 mx-6">';
                         echo '  <div class="h-64 w-auto overflow-hidden flex ">';
                         echo '    <img alt="product" class="object-contain h-auto  w-64" src="' . $product['picture'] . '">';
                         echo '  </div>';
@@ -51,6 +42,7 @@ $con = getDBConnection();
         </section>
 
         <?php require_once 'footer.php'; ?>
+        
     </div>
 </body>
 

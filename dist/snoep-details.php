@@ -15,27 +15,18 @@ if (isset($_GET['id'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $product['name']; ?> | CandyPop</title>
-    <link rel="stylesheet" href="output.css">
-    <link rel="stylesheet" href="custom.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-    <script defer src="mobile-menu.js"></script>
-</head>
+<?php
+$pagetitle = 'Snoep-details | CandyPop';
+require_once 'head.php';
+?>
 
 <body>
     <div class="bg-white">
-        <?php require_once 'header.php'; ?>
+
+        <?php require_once 'navbar.php'; ?>
 
         <section class="text-black mt-8">
-            <div class="container px-5 py-24 mx-auto">
+            <div class="container px-5 pt-24 pb-12 mx-auto">
                 <div class="flex flex-wrap justify-evenly">
                     <div class="rounded-lg p-4 m-auto mb-6 outline outline-cyan-700 mx-6">
                         <div class="h-64 w-auto overflow-hidden flex">
@@ -53,6 +44,7 @@ if (isset($_GET['id'])) {
         </section>
 
         <?php require_once 'footer.php'; ?>
+
     </div>
 </body>
 

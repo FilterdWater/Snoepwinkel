@@ -36,7 +36,7 @@
                                     <a href="#" class="transition hover:opacity-75 text-gray-50"> Legal notice </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="transition hover:opacity-75 text-gray-50"> Terms annd conditions </a>
+                                    <a href="#" class="transition hover:opacity-75 text-gray-50"> Terms and conditions </a>
                                 </li>
                                 <li>
                                     <a href="#" class="transition hover:opacity-75 text-gray-50"> Refund policy </a>
