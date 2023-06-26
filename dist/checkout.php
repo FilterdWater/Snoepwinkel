@@ -1,5 +1,5 @@
 <?php
-$pagetitle = 'About | CandyPop';
+$pagetitle = 'Checkout | CandyPop';
 require_once 'head.php';
 ?>
 

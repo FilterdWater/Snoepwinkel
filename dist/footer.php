@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <ul class="mt-8 justify-center flex  p-2 rounded">
-                    <li class="text-xs text-white"> &copy; 2023. CandyPop. All rights reserved. </li>
+                    <li class="text-xs text-white"> &copy; 2023. Lars van Holland. All rights reserved. </li>
                     <a href="" rel="noreferrer" class="transition-all hover:opacity-75">
                         <li class="text-white pl-10">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4  h-4">
