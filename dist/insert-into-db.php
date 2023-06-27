@@ -22,7 +22,7 @@ require_once 'navbar.php';
         <div class="sm:col-span-2">
           <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Naam</label>
           <div class="mt-2">
-            <input type="text" name="name" id="name" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <input type="text" name="name" id="name" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2">
           </div>
         </div>
         <div class="col-span-full">
@@ -46,31 +46,31 @@ require_once 'navbar.php';
         <div class="sm:col-span-2">
           <label for="price" class="block text-sm font-medium leading-6 text-gray-900">Prijs</label>
           <div class="mt-2">
-            <input type="text" name="price" id="price" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <input type="text" name="price" id="price" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2">
           </div>
         </div>
         <div class="sm:col-span-4">
           <label for="description" class="block text-sm font-medium leading-6 text-gray-900">Beschrijving</label>
           <div class="mt-2">
-            <input type="text" name="description" id="description" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <input type="text" name="description" id="description" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2">
           </div>
         </div>
         <div class="sm:col-span-4">
           <label for="detailed_description" class="block text-sm font-medium leading-6 text-gray-900">Gedetailleerde beschrijving</label>
           <div class="mt-2">
-            <textarea name="detailed_description" id="detailed_description" required rows="4" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+            <textarea name="detailed_description" id="detailed_description" required rows="4" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2"></textarea>
           </div>
         </div>
         <div class="sm:col-span-2">
           <label for="nutritional_value" class="block text-sm font-medium leading-6 text-gray-900">Voedingswaarde</label>
           <div class="mt-2">
-            <textarea name="nutritional_value" id="nutritional_value" required rows="4" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+            <textarea name="nutritional_value" id="nutritional_value" required rows="4" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2"></textarea>
           </div>
         </div>
         <div class="sm:col-span-2">
           <label for="filter_category" class="block text-sm font-medium leading-6 text-gray-900">Filter-categorie</label>
           <div class="mt-2">
-            <input type="text" name="filter_category" id="filter_category" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <input type="text" name="filter_category" id="filter_category" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2">
           </div>
         </div>
       </div>

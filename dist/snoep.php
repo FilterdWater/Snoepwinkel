@@ -16,7 +16,8 @@ require_once 'head.php';
         <section class="text-gray-600 body-font mt-8">
             <div class="container py-24 mx-auto">
                 <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 justify-evenly">
-                    <?php
+                <?php
+
                     $products = getProducts($con);
 
                     foreach ($products as $product) {
@@ -27,16 +28,21 @@ require_once 'head.php';
                         echo '  <div class="mt-5">';
                         echo '    <h2 class="text-2xl font-medium title-font text-gray-900">' . $product['name'] . '</h2>';
                         echo '    <p class="text-base leading-relaxed mt-2">' . $product['description'] . '</p>';
+                        echo '    <p class="text-base leading-relaxed mt-2">' . $product['price'] . '</p>';
                         echo '    <div class="mt-6">';
-                        echo '      <button type="button" class="text-white bg-gradient-to-r from-rose-700 via-rose-500 to-rose-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-rose-300 shadow-lg shadow-rose-500/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 transition-all">+ Add to cart</button>';
+                        echo '      <form method="post" action="ad_to_winkelmand.php">';
+                        echo '        <input type="hidden" name="productId" value="' . $product['id'] . '">';
+                        echo '        <button type="submit" class="text-white bg-gradient-to-r from-rose-700 via-rose-500 to-rose-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-rose-300 shadow-lg shadow-rose-500/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 transition-all">+ Add to cart</button>';
+                        echo '      </form>';
                         echo '    </div>';
                         echo '    <div class="mt-2">';
                         echo '      <a href="snoep-details.php?id=' . $product['id'] . '" class="text-white bg-gradient-to-r from-fuchsia-900 via-fuchsia-700 to-fuchsia-900 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-fuchsia-300 shadow-lg shadow-fuchsia-500/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 transition-all">View Details</a>';
                         echo '    </div>';
                         echo '  </div>';
                         echo '</div>';
-                    }                                                        
-                    ?>
+                    }
+                ?>
+
                 </div>
             </div>
         </section>

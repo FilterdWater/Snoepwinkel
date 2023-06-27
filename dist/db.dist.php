@@ -23,13 +23,14 @@ function validateFile($file) //Checkt of de foto die gestuurd well mag gestuurd 
 
 function processFormSubmission($con)
 {
+    //htmlspecailchars zet syntax zoals ;,() om naar html  (tip vind sander)
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $name = $_POST['name'];
-        $price = $_POST['price'];
-        $description = $_POST['description'];
-        $detailedDescription = $_POST['detailed_description'];
-        $nutritionalValue = $_POST['nutritional_value'];
-        $filterCategory = $_POST['filter_category'];
+        $name = htmlspecialchars ($_POST['name']);
+        $price = htmlspecialchars ($_POST['price']);
+        $description = htmlspecialchars ($_POST['description']);
+        $detailedDescription = htmlspecialchars ($_POST['detailed_description']);
+        $nutritionalValue = htmlspecialchars ($_POST['nutritional_value']);
+        $filterCategory = htmlspecialchars ($_POST['filter_category']);
 
         if (!isset($_FILES['picture'])) {
             echo "Error: No file uploaded.";

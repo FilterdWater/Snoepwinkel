@@ -2,14 +2,14 @@
 require_once('db.inc.php');
 $con = getDBConnection();
 
-// Retrieve the product ID from the URL parameter
+    // Haal de product-ID op uit de URL-parameter
 if (isset($_GET['id'])) {
     $productID = $_GET['id'];
 
-    // Fetch the product details from the database
+    // Haal de productdetails op uit de database
     $product = getProductDetails($con, $productID);
 } else {
-    // If no product ID is provided, redirect back to the candy page or show an error message
+    // Als er geen product-ID wordt opgegeven, ga dan terug naar de snoep-pagina of geef een foutmelding weer
     header('Location: candy.php');
     exit();
 }
@@ -37,8 +37,14 @@ require_once 'head.php';
                         <h2 class=" text-2xl font-medium  my-5"><?php echo $product['name']; ?></h2>
                         <p class="text-base leading-relaxed  mt-2"><?php echo $product['description']; ?></p>
                         <p class="text-sm leading-relaxed mt-2"><?php echo $product['detailed_description']; ?></p>
-                        <button type="button" class="mt-6 text-white bg-gradient-to-r from-rose-700 via-rose-500 to-rose-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-rose-300 shadow-lg shadow-rose-500/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 transition-all">+ Add to cart</button>
-                    </div>
+                        <p class="text-sm leading-relaxed mt-2"><?php echo $product['price']; ?></p>
+                        <?php
+                        echo '      <form method="post" action="ad_to_winkelmand.php">';
+                        echo '        <input type="hidden" name="productId" value="' . $product['id'] . '">';
+                        echo '        <button type="submit" class="text-white bg-gradient-to-r from-rose-700 via-rose-500 to-rose-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-rose-300 shadow-lg shadow-rose-500/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 transition-all">+ Add to cart</button>';
+                        echo '      </form>';               
+                        ?>
+                     </div>
                 </div>
             </div>
         </section>
