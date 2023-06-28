@@ -23,7 +23,7 @@ function validateFile($file) //Checkt of de foto die gestuurd well mag gestuurd 
 
 function processFormSubmission($con)
 {
-    //htmlspecailchars zet syntax zoals ;,() om naar html  (tip vind sander)
+    //htmlspecailchars zet syntax zoals ;,() om naar html  (tip vand sander)
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $name = htmlspecialchars ($_POST['name']);
         $price = htmlspecialchars ($_POST['price']);
