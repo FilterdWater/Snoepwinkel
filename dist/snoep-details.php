@@ -41,8 +41,10 @@ require_once 'head.php';
                         <?php
                         echo '      <form method="post" action="ad_to_winkelmand.php">';
                         echo '        <input type="hidden" name="productId" value="' . $product['id'] . '">';
-                        echo '        <button type="submit" class="text-white bg-gradient-to-r from-rose-700 via-rose-500 to-rose-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-rose-300 shadow-lg shadow-rose-500/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 transition-all">+ Add to cart</button>';
+                        echo '        <button type="submit" class="text-white bg-gradient-to-r from-rose-700 via-rose-500 to-rose-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-rose-300 shadow-lg shadow-rose-500/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 transition-all">+ Add to cart</button>
+                                    <input value="1" type="number" name="orderamount" min="1" max="99" class="mt-4 w-14 p-3 rounded-xl outline"></input>';
                         echo '      </form>';               
+                        echo '     ';
                         ?>
                      </div>
                 </div>

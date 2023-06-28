@@ -33,7 +33,6 @@ require_once 'head.php';
                             echo '    <h2 class="text-xl font-medium title-font text-gray-900">' . $product['name'] . '</h2>';
                             echo '    <p class="text-sm leading-relaxed mt-2">' . $product['description'] . '</p>';
                             echo '    <p class="text-base leading-relaxed mt-2">' . $product['price'] . '</p>';
-                            echo '     <input value="1" type="number" name="orderamount" min="1" max="99" class="mt-4 w-14 p-3 rounded-xl outline"></input>';
                             echo '    <form method="post" action="remove_from_winkelmand.php">';
                             echo '      <input type="hidden" name="item_id" value="' . $itemId . '">';
                             echo '      <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-3">Delete</button>';
