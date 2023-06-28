@@ -49,6 +49,9 @@
                                 <li>
                                     <a href="https://larsvanholland.com/" class="transition hover:opacity-75 text-gray-50"> larsvanholland.com </a>
                                 </li>
+                                <li>
+                                    <a href="https://github.com/FilterdWater/Snoepwinkel" class="text-white"><img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="Github-logo" class="w-8 h-8">Dit project staat op github</a>
+                                </li>
                             </ul>
                         </div>
                     </div>

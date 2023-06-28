@@ -4,7 +4,7 @@ $con = getDBConnection();
 ?>
 
 <?php
-$pagetitle = 'WinkelMand | CandyPop';
+$pagetitle = 'Winkelmand | CandyPop';
 require_once 'head.php';
 ?>
 
@@ -14,37 +14,38 @@ require_once 'head.php';
 
         <section class="text-black mt-8">
             <div class="container px-5 pt-24 pb-12 mx-auto">
-                <h2 class="text-2xl font-medium mb-4 outline rounded p-3">winkelmand</h2>
+                <h2 class="text-2xl font-medium mb-4 outline rounded p-3">Winkelmand</h2>
 
                 <?php
-                if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-                    $cartItems = $_SESSION['cart'];
+                    if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+                        $cartItems = $_SESSION['cart'];
 
-                    foreach ($cartItems as $itemId) {
-                        // Haal de productdetails op op basis van de item-ID
-                        $product = getProductDetails($con, $itemId);
+                        foreach ($cartItems as $itemId) {
+                            // Haal de productdetails op op basis van de item-ID
+                            $product = getProductDetails($con, $itemId);
 
-                        // Geef de productinformatie weer
-                        echo '<div class="rounded-lg p-4 m-auto mb-6 outline outline-cyan-700">';
-                        echo '  <div class="h-64 w-auto overflow-hidden flex">';
-                        echo '    <img alt="product" class="object-contain h-auto  w-64" src="' . $product['picture'] . '">';
-                        echo '  </div>';
-                        echo '  <div class="mt-5">';
-                        echo '    <h2 class="text-2xl font-medium title-font text-gray-900">' . $product['name'] . '</h2>';
-                        echo '    <p class="text-base leading-relaxed mt-2">' . $product['description'] . '</p>';
-                        echo '    <p class="text-base leading-relaxed mt-2">' . $product['price'] . '</p>';
-                        echo '    <form method="post" action="remove_from_winkelmand.php">';
-                        echo '      <input type="hidden" name="item_id" value="' . $itemId . '">';
-                        echo '      <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-3">Delete</button>';
-                        echo '    </form>';
-                        echo '  </div>';
-                        echo '</div>';
-                        echo '<hr class="my-6 h-0.5 border-t-0 bg-black opacity-75">';
+                            // Geef de productinformatie weer
+                            echo '<div class="rounded-lg p-4 m-auto mb-6 outline outline-cyan-700">';
+                            echo '  <div class="h-24 w-auto overflow-hidden flex">';
+                            echo '    <img alt="product" class="object-contain h-auto w-32" src="' . $product['picture'] . '">';
+                            echo '  </div>';
+                            echo '  <div class="mt-5">';
+                            echo '    <h2 class="text-xl font-medium title-font text-gray-900">' . $product['name'] . '</h2>';
+                            echo '    <p class="text-sm leading-relaxed mt-2">' . $product['description'] . '</p>';
+                            echo '    <p class="text-base leading-relaxed mt-2">' . $product['price'] . '</p>';
+                            echo '     <input value="1" type="number" name="orderamount" min="1" max="99" class="mt-4 w-14 p-3 rounded-xl outline"></input>';
+                            echo '    <form method="post" action="remove_from_winkelmand.php">';
+                            echo '      <input type="hidden" name="item_id" value="' . $itemId . '">';
+                            echo '      <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-3">Delete</button>';
+                            echo '    </form>';
+                            echo '  </div>';
+                            echo '</div>';
+                            echo '<hr class="my-6 h-0.5 border-t-0 bg-black opacity-75">';
+                        }
+                    } else {
+                        echo '<p>Your cart is empty.</p>';
                     }
-                } else {
-                    echo '<p>Your cart is empty.</p>';
-                }
-                ?>
+                    ?>
 
                 <div class="flex justify-center">
                     <div class=" max-w-full">
@@ -60,8 +61,8 @@ require_once 'head.php';
                     <div class="max-w-full pt-4 pl-0 sm:pl-72">
                         <div class="text-center">
                             <div class="outline p-6 rounded-3xl outline-cyan-700 shadow-lg shadow-cyan-700">
-                                <h1 class="text-3xl font-bold text-gray-900 mb-6">Dump ze!</h1>
-                                <a href="hulpje.php" class="rounded-md bg-gradient-to-br from-rose-500 via-fuchsia-900 to-fuchsia-900 px-3 py-2 text-sm font-semibold text-white">Delete alle winkelmand items</a>
+                                <h1 class="text-3xl font-bold text-gray-900 mb-6">Dump de session data!</h1>
+                                <a href="hulpje.php" class="rounded-md bg-gradient-to-br from-rose-500 via-fuchsia-900 to-fuchsia-900 px-3 py-2 text-sm font-semibold text-white">Delete alle session data</a>
                             </div>
                         </div>
                     </div>

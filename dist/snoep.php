@@ -19,7 +19,7 @@ require_once 'head.php';
                 <?php
 
                     $products = getProducts($con);
-
+                    
                     foreach ($products as $product) {
                         echo '<div class="rounded-lg p-4 m-auto mb-6 outline outline-cyan-700 mx-6">';
                         echo '  <div class="h-64 w-auto overflow-hidden flex ">';

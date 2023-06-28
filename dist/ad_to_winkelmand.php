@@ -3,7 +3,7 @@ $pagetitle = 'ad-to-winkelmand | CandyPop';
 require_once 'head.php';
 ?>
 
-    
+
 
         <?php
 

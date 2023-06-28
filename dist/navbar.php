@@ -17,6 +17,7 @@
             <div class="hidden lg:flex pl-4 lg:gap-x-14">
                 <a href="index.php" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold border-b-2 border-gray-300 hover:border-current cursor-pointer select-none text-gray-900 hover:bg-gray-50 transition-all shadow-inner">Home</a>
                 <a href="snoep.php" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold border-b-2 border-gray-300 hover:border-current cursor-pointer select-none text-gray-900 hover:bg-gray-50 transition-all shadow-inner">Snoep</a>
+                            <div class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold border-b-2 border-black hover:border-current cursor-pointer select-none text-gray-900 hover:bg-gray-50 transition-all shadow-inner"><?php echo $pagetitle;?></div>
                 <a href="contact.php" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold border-b-2 border-gray-300 hover:border-current cursor-pointer select-none text-gray-900 hover:bg-gray-50 transition-all shadow-inner">Contact</a>
                 <a href="about.php" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold border-b-2 border-gray-300 hover:border-current cursor-pointer select-none text-gray-900 hover:bg-gray-50 transition-all shadow-inner">Over ons</a>
             </div>
