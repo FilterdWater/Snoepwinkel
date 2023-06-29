@@ -2,13 +2,13 @@
 require_once('db.inc.php');
 $con = getDBConnection();
 
-function validateFile($file) //Checkt of de foto die gestuurd well mag gestuurd worden
+function validateFile($picture) //Checkt of de foto die gestuurd well mag gestuurd worden
 {
     $allowedExtensions = array('jpg', 'jpeg', 'webp');
     $maxFileSize = 1 * 1024 * 1024; // 1 MB
 
-    $fileExtension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-    $fileSize = $file['size'];
+    $fileExtension = strtolower(pathinfo($picture['name'], PATHINFO_EXTENSION));
+    $fileSize = $picture['size'];
 
     if (!in_array($fileExtension, $allowedExtensions)) {
         return "Error: Only JPG, JPEG, and WEBP files are allowed.";
@@ -33,23 +33,23 @@ function processFormSubmission($con)
         $filterCategory = htmlspecialchars ($_POST['filter_category']);
 
         if (!isset($_FILES['picture'])) {
-            echo "Error: No file uploaded.";
+            echo "Error: Geen Picture geupload.";
             return;
         }
 
-        $file = $_FILES['picture'];
+        $picture = $_FILES['picture'];
 
-        $fileValidationResult = validateFile($file);
+        $fileValidationResult = validateFile($picture);
         if ($fileValidationResult !== null) {
             echo $fileValidationResult;
             return;
         }
 
         $targetDir = "images/";
-        $targetFileName = uniqid() . '_' . $file['name'];
+        $targetFileName = uniqid() . '_' . $picture['name'];
         $targetFilePath = $targetDir . $targetFileName;
 
-        move_uploaded_file($file['tmp_name'], $targetFilePath);
+        move_uploaded_file($picture['tmp_name'], $targetFilePath);
 
         $sql = "INSERT INTO snoepjes (name, picture, price, description, detailed_description, nutritional_value, filter_category) VALUES (:name, :picture, :price, :description, :detailed_description, :nutritional_value, :filter_category)";
         $stmt = $con->prepare($sql);
