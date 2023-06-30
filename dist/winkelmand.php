@@ -20,7 +20,6 @@ require_once 'head.php';
                         if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                             $cartItems = $_SESSION['cart'];
 
-                            var_dump($_SESSION);
 
                             foreach ($cartItems as $item) {
                                 // Get product details based on the item's productId

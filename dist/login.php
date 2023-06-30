@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $pagetitle = 'Login | CandyPop';
-require_once 'head.php';
+require_once 'head.php';  
 ?>
 
 <body>

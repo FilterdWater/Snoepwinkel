@@ -4,11 +4,11 @@
 $pagetitle = 'Voeg product toe | CandyPop';
 require_once 'head.php';
 
-if (!isset($_SESSION["username"]) || !isset($_SESSION["email"]) || !isset($_SESSION["password"])) {
+/*if (!isset($_SESSION["username"]) || !isset($_SESSION["email"]) || !isset($_SESSION["password"])) {
     header("Location: login.php");
     exit();
 }
-
+*/
 ?>
 
 <body>

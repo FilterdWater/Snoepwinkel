@@ -47,7 +47,7 @@ function getAdmin($con)
             if (empty($_POST["username"]) || empty($_POST["email"]) || empty($_POST["password"])) {
                 $message = '<label>All fields are required</label>';
             } else {
-                $query = "SELECT * FROM users WHERE username = :username AND email = :email AND password = :password";
+                $query = "SELECT * FROM users WHERE username = :username AND email = :email AND password = :admin_password";
                 $statement = $con->prepare($query);
                 $statement->execute(array(
                     'username' => $_POST["username"],
