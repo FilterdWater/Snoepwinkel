@@ -44,21 +44,21 @@ function getAdmin($con)
 {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST["login"])) {
-            if (empty($_POST["username"]) || empty($_POST["email"]) || empty($_POST["password"])) {
+            if (empty($_POST["username"]) || empty($_POST["email"]) || empty($_POST["admin_password"])) {
                 $message = '<label>All fields are required</label>';
             } else {
-                $query = "SELECT * FROM users WHERE username = :username AND email = :email AND password = :admin_password";
+                $query = "SELECT * FROM users WHERE username = :username AND email = :email AND admin_password = :admin_password";
                 $statement = $con->prepare($query);
                 $statement->execute(array(
                     'username' => $_POST["username"],
                     'email' => $_POST["email"],
-                    'password' => $_POST["password"]
+                    'admin_password' => $_POST["admin_password"]
                 ));
                 $count = $statement->rowCount();
                 if ($count > 0) {
                     $_SESSION["username"] = $_POST["username"];
                     $_SESSION["email"] = $_POST["email"];
-                    $_SESSION["password"] = $_POST["password"];
+                    $_SESSION["admin_password"] = $_POST["admin_password"];
                     header('Location: index.php');
                     exit();
                 } else {
